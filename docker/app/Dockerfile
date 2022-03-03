@@ -13,6 +13,7 @@ RUN apt-get update \
   && apt-get install -y libicu-dev \
   && apt-get install -y libonig-dev \
   && apt-get install -y sqlite3 \
+  && apt-get install -y npm \
   && docker-php-ext-install pdo_mysql intl
 
 # Laravelで必要になるmodRewriteを有効化する
