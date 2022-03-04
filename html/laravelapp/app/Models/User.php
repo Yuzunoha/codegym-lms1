@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -37,6 +38,7 @@ class User extends Authenticatable
   protected $hidden = [
     'password',
     'remember_token',
+    'email_verified_at',
     'two_factor_recovery_codes',
     'two_factor_secret',
   ];
@@ -58,4 +60,15 @@ class User extends Authenticatable
   protected $appends = [
     'profile_photo_url',
   ];
+
+  /**
+   * 配列/JSONシリアル化の日付を準備
+   *
+   * @param  \DateTimeInterface  $date
+   * @return string
+   */
+  protected function serializeDate(DateTimeInterface $date)
+  {
+    return $date->format('Y-m-d H:i:s');
+  }
 }
