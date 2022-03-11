@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-  protected $testService;
+  protected TestService $testService;
 
   public function __construct(TestService $testService)
   {
