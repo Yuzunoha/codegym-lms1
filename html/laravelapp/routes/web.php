@@ -24,3 +24,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('test', function () {
   return view('welcome');
 });
+
+Route::get('test/arrow', fn () => "こんにちは!");
