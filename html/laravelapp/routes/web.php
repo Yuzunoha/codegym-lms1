@@ -23,3 +23,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('test/arrow', fn () => "こんにちは!");
 Route::get('test', 'TestController@index');
+Route::get('adminlte', function () {
+  return view('adminlte');
+});
