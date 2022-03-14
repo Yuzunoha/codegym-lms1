@@ -9,7 +9,11 @@
 @section('content')
 <p>ここがコンテンツ部分です</p>
 
-{{ $data[0]->name }}
+<pre>
+@php
+print_r($data)
+@endphp
+</pre>
 
 @stop
 

@@ -23,7 +23,8 @@ class TestController extends Controller
 
   public function relation()
   {
-    $data = Course::all();
+    $data[] = Course::all()->toArray();
+    $data[] = date("Y/m/d H:i:s");
     return view('test', compact('data'));
   }
 }
