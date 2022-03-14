@@ -16,8 +16,8 @@ services:
       - ./html:/var/www/html
     environment:
       TZ: Asia/Tokyo
-      VIRTUAL_HOST: lms.yuzunoha.net
-      LETSENCRYPT_HOST: lms.yuzunoha.net
+      VIRTUAL_HOST: lms.yuzucloud.net
+      LETSENCRYPT_HOST: lms.yuzucloud.net
       LETSENCRYPT_EMAIL: studysteadystandby@gmail.com
 networks:
   default:
