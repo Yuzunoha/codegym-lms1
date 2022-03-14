@@ -5,5 +5,16 @@ services:
       context: ./docker/app
     volumes:
       - ./html:/var/www/html
+    environment:
+      TZ: Asia/Tokyo
     ports:
       - 80:80
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: docker_db
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Tokyo
+    volumes:
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/mysql/var_lib_mysql:/var/lib/mysql
