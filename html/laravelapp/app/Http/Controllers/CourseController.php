@@ -2,37 +2,83 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
-use App\Services\CourseService;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-  protected CourseService $courseService;
-
-  public function __construct(CourseService $courseService)
-  {
-    $this->courseService = $courseService;
-  }
-
-  public function index()
-  {
-    $data = Course::with('clazzes')->get()->toArray();
-    return view('courses/index', compact('data'));
-  }
-
-  public function edit(int $id)
-  {
-    $course = Course::with('clazzes')->find($id);
-    if (!$course) {
-      /* 存在しない */
-      return redirect('courses');
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
     }
-    return view('courses/edit', compact('course'));
-  }
 
-  public function update(int $id, Request $request)
-  {
-    dd($id, '届いた', $request->name);
-  }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }
