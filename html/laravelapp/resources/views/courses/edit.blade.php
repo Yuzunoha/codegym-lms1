@@ -29,7 +29,7 @@
         </tr>
         <tr>
           <td></td>
-          <td><input type="text" class="form-control" value="{{ $course->name }}"></td>
+          <td><input type="text" class="form-control" name="name" value="{{ $course->name }}"></td>
           <td></td>
           <td></td>
           <td></td>

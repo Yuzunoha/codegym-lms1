@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Services\CourseService;
+use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
@@ -30,8 +31,8 @@ class CourseController extends Controller
     return view('courses/edit', compact('course'));
   }
 
-  public function update(int $id)
+  public function update(int $id, Request $request)
   {
-    dd($id, '届いた');
+    dd($id, '届いた', $request->name);
   }
 }
