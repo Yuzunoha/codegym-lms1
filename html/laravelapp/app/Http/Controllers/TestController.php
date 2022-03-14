@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Services\TestService;
+use DateTime;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -22,10 +23,10 @@ class TestController extends Controller
 
   public function relation()
   {
-    $data = Course::create([
+    $data[] = Course::create([
       'name' => 'コース1',
     ]);
-
-    return view('test', compact('data'));
+    $data[] = date("Y/m/d H:i:s");
+    dd($data);
   }
 }
