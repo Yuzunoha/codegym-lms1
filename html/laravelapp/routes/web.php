@@ -21,8 +21,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
   return view('dashboard');
 })->name('dashboard');
 
-Route::get('test/arrow', fn () => "こんにちは!");
 Route::get('test', 'TestController@index');
+Route::get('test/arrow', fn () => "こんにちは!");
+Route::get('test/relation', 'TestController@relation');
 
 Route::get('sample1', function () {
   return view('sample1');
