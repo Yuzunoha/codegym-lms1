@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Clazz;
+use App\Models\ClazzCourse;
 use App\Models\Course;
+use createClazzCourseTable;
 use Illuminate\Database\Seeder;
 
 class MainSeeder extends Seeder
@@ -31,6 +33,7 @@ class MainSeeder extends Seeder
      * クラス
      */
     foreach ($languages as $language) {
+      break;
       for ($i = 1; $i <= 5; $i++) {
         $str = $language . 'クラス' . $i;
         Clazz::create([
@@ -45,6 +48,26 @@ class MainSeeder extends Seeder
           'season' => $i,
           'type' => 'PT',
         ]);
+      }
+    }
+
+    /**
+     * コース_クラス
+     */
+    $courses = Course::all()->toArray();
+    $clazzes = Clazz::all()->toArray();
+    foreach ($courses as $course) {
+      break;
+      $course_id = $course['id'];
+      $lang = explode('基礎', $course['name'])[0];
+      foreach ($clazzes as $clazz) {
+        if (strpos($clazz['name'], $lang . 'クラス') !== false) {
+          $clazz_id = $clazz['id'];
+          ClazzCourse::create([
+            'course_id' => $course_id,
+            'clazz_id' => $clazz_id,
+          ]);
+        }
       }
     }
   }
