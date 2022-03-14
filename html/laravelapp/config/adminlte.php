@@ -267,7 +267,12 @@ return [
     [
       'text' => 'courses',
       'url'  => 'courses',
-      'icon' => 'fas fa-fw fa-code-branch',
+      'icon' => 'fas fa-fw fa-code',
+    ],
+    [
+      'text' => 'clazzes',
+      'url'  => 'clazzes',
+      'icon' => 'fas fa-fw fa-school',
     ],
 
     // [
