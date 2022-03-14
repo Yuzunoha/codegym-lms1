@@ -76,6 +76,10 @@ class CourseController extends Controller
   public function update(Request $request, int $id)
   {
     $course = Course::find($id);
+    if (!$course) {
+      /* 無い */
+      return redirect('courses');
+    }
     $course->name = $request->name ?: $course->name;
     $course->save();
     return view('courses/edit', compact('course'));
