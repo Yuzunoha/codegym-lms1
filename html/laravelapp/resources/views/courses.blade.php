@@ -15,7 +15,7 @@
         <tr>
           <th style="width: 10px">#</th>
           <th>name</th>
-          <th>action</th>
+          <th style="width: 100px">action</th>
         </tr>
       </thead>
       <tbody>
@@ -23,7 +23,7 @@
         <tr>
           <td>{{ $a['id'] }}</td>
           <td>{{ $a['name'] }}</td>
-          <td>編集</td>
+          <td><button type="button" class="btn btn-block btn-default">編集</button></td>
         </tr>
         @endforeach
       </tbody>
