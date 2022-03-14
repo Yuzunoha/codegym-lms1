@@ -22,10 +22,11 @@ class CourseController extends Controller
 
   public function edit(int $id)
   {
-    if (!Course::find($id)) {
+    $course = Course::with('clazzes')->find($id);
+    if (!$course) {
       /* 存在しない */
       return redirect('courses');
     }
-    return view('courses/edit');
+    return view('courses/edit', compact('course'));
   }
 }
