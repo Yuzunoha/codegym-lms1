@@ -21,12 +21,12 @@
       </thead>
       <tbody>
         @foreach($data as $a)
-        @php
+        <?php
         $clazzStr = '';
-        foreach($a['clazzes'] as $clazz) {
-        $clazzStr .= $clazz['name'] . '<br>';
+        foreach ($a['clazzes'] as $clazz) {
+          $clazzStr .= $clazz['name'] . '<br>';
         }
-        @endphp
+        ?>
         <tr>
           <td>{{ $a['id'] }}</td>
           <td>{{ $a['name'] }}</td>
