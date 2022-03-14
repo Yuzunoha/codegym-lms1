@@ -19,4 +19,9 @@ class CourseController extends Controller
     $data = Course::with('clazzes')->get()->toArray();
     return view('courses', compact('data'));
   }
+
+  public function edit(int $id)
+  {
+    return ['action' => 'edit', 'id' => $id];
+  }
 }
