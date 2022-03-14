@@ -26,6 +26,6 @@ class CourseController extends Controller
       /* 存在しない */
       return redirect('courses');
     }
-    return ['action' => 'edit', 'id' => $id];
+    return view('courses/edit');
   }
 }
