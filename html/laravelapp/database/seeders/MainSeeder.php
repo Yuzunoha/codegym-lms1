@@ -34,13 +34,13 @@ class MainSeeder extends Seeder
       for ($i = 1; $i <= 5; $i++) {
         $str = $language . 'クラス' . $i;
         Clazz::create([
-          'name' => $str,
+          'name' => $str . 'FT',
           'year' => '2022',
           'season' => $i,
           'type' => 'FT',
         ]);
         Clazz::create([
-          'name' => $str,
+          'name' => $str . 'PT',
           'year' => '2022',
           'season' => $i,
           'type' => 'PT',
