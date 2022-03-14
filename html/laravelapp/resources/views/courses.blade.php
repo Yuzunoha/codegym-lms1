@@ -7,26 +7,25 @@
 @stop
 
 @section('content')
+
 <div class="card">
   <div class="card-body p-0">
     <table class="table table-striped">
       <thead>
         <tr>
           <th style="width: 10px">#</th>
-          <th>Course</th>
           <th>name</th>
+          <th>action</th>
         </tr>
       </thead>
       <tbody>
+        @foreach($data as $a)
         <tr>
-          <td>1.</td>
-          <td>Update software</td>
-          <td>
-            <div class="progress progress-xs">
-              <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-            </div>
-          </td>
+          <td>{{ $a['id'] }}</td>
+          <td>{{ $a['name'] }}</td>
+          <td>編集</td>
         </tr>
+        @endforeach
       </tbody>
     </table>
   </div>
