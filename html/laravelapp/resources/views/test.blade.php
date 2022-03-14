@@ -9,7 +9,7 @@
 @section('content')
 <p>ここがコンテンツ部分です</p>
 
-{{ $data }}
+{{ $data[0]->name }}
 
 @stop
 

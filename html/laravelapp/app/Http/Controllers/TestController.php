@@ -23,10 +23,7 @@ class TestController extends Controller
 
   public function relation()
   {
-    $data[] = Course::create([
-      'name' => 'コース1',
-    ]);
-    $data[] = date("Y/m/d H:i:s");
-    dd($data);
+    $data = Course::all();
+    return view('test', compact('data'));
   }
 }
