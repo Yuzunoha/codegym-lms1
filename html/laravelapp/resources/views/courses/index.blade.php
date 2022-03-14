@@ -7,7 +7,6 @@
 @stop
 
 @section('content')
-
 <div class="card">
   <div class="card-body p-0">
     <table class="table table-striped">
@@ -20,16 +19,16 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($data as $a)
+        @foreach($courses as $course)
         <?php
         $clazzStr = '';
-        foreach ($a['clazzes'] as $clazz) {
-          $clazzStr .= $clazz['name'] . '<br>';
+        foreach ($course->clazzes as $clazz) {
+          $clazzStr .= $clazz->name . '<br>';
         }
         ?>
         <tr>
-          <td>{{ $a['id'] }}</td>
-          <td>{{ $a['name'] }}</td>
+          <td>{{ $course->id }}</td>
+          <td>{{ $course->name }}</td>
           <td>{!! $clazzStr !!}</td>
           <td><button type="button" class="btn btn-block btn-default">編集</button></td>
         </tr>
