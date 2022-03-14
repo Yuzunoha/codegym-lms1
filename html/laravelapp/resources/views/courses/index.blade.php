@@ -16,6 +16,7 @@
           <th>name</th>
           <th>clazzes</th>
           <th style="width: 100px">action</th>
+          <th style="width: 100px">danger</th>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +32,7 @@
           <td>{{ $course->name }}</td>
           <td>{!! $clazzStr !!}</td>
           <td><button type="button" class="btn btn-block btn-default">編集</button></td>
+          <td><button type="button" class="btn btn-block btn-danger">削除</button></td>
         </tr>
         @endforeach
       </tbody>
