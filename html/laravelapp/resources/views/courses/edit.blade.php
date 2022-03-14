@@ -7,7 +7,9 @@
 @stop
 
 @section('content')
-<form>
+<form action="{{ url('courses', $course->id) }}" method="post">
+  @method('PUT')
+  @csrf
   <div class="card">
     <div class="card-body p-0">
       <table class="table table-striped">

@@ -29,4 +29,9 @@ class CourseController extends Controller
     }
     return view('courses/edit', compact('course'));
   }
+
+  public function update(int $id)
+  {
+    dd($id, '届いた');
+  }
 }

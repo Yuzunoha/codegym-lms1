@@ -24,6 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // 本番 start
 Route::get('courses', 'CourseController@index');
 Route::get('courses/{id}/edit', 'CourseController@edit');
+Route::put('courses/{id}', 'CourseController@update');
 // 本番 end
 
 Route::get('test', 'TestController@index');
