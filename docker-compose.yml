@@ -1,14 +1,5 @@
 version: '3'
 services:
-  app:
-    build:
-      context: ./docker/app
-    volumes:
-      - ./html:/var/www/html
-    environment:
-      TZ: Asia/Tokyo
-    ports:
-      - 80:80
   mysql:
     image: mysql:8
     environment:
@@ -18,3 +9,12 @@ services:
     volumes:
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./docker/mysql/var_lib_mysql:/var/lib/mysql
+  app:
+    build:
+      context: ./docker/app
+    volumes:
+      - ./html:/var/www/html
+    environment:
+      TZ: Asia/Tokyo
+    ports:
+      - 80:80
