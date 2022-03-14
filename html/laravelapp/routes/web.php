@@ -22,6 +22,19 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 // 本番 start
+/*
+=========================================================================================
+|  Route::resource('tests', 'TestController');                                          |
+=========================================================================================
+| GET       | /tests             | index   | リソースを一覧表示する                       |
+| GET       | /tests/create      | create  | リソースを新規作成するためのフォームを表示する |
+| POST      | /tests             | store   | リソースを新規作成する                       |
+| GET       | /tests/{test}      | show    | 指定されたリソースの詳細情報を表示する        |
+| GET       | /tests/{test}/edit | edit    | 指定されたリソースの編集フォームを表示する     |
+| PUT/PATCH | /tests/{test}      | update  | 指定されたリソースを更新する                  |
+| DELETE    | /tests/{test}      | destroy | 指定されたリソースを削除する                  |
+=========================================================================================
+*/
 Route::resource('courses', 'CourseController');
 // 本番 end
 
