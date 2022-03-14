@@ -15,14 +15,22 @@
         <tr>
           <th style="width: 10px">#</th>
           <th>name</th>
+          <th>clazzes</th>
           <th style="width: 100px">action</th>
         </tr>
       </thead>
       <tbody>
         @foreach($data as $a)
+        @php
+        $clazzStr = '';
+        foreach($a['clazzes'] as $clazz) {
+        $clazzStr .= $clazz['name'] . '<br>';
+        }
+        @endphp
         <tr>
           <td>{{ $a['id'] }}</td>
           <td>{{ $a['name'] }}</td>
+          <td>{!! $clazzStr !!}</td>
           <td><button type="button" class="btn btn-block btn-default">編集</button></td>
         </tr>
         @endforeach
