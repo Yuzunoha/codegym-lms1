@@ -22,6 +22,10 @@ class CourseController extends Controller
 
   public function edit(int $id)
   {
+    if (!Course::find($id)) {
+      /* 存在しない */
+      return redirect('courses');
+    }
     return ['action' => 'edit', 'id' => $id];
   }
 }
