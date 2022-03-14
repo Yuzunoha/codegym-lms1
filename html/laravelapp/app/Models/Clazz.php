@@ -4,6 +4,8 @@ namespace App\Models;
 
 class Clazz extends ModelBase
 {
+  protected $table = 'clazzes';
+
   protected $fillable = [
     'name',
     'year',
