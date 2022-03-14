@@ -75,7 +75,10 @@ class CourseController extends Controller
    */
   public function update(Request $request, int $id)
   {
-    dd($id, 'リソースフルにした', $request->name);
+    $course = Course::find($id);
+    $course->name = $request->name ?: $course->name;
+    $course->save();
+    return view('courses/edit', compact('course'));
   }
 
   /**
