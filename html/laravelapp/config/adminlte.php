@@ -274,7 +274,21 @@ return [
       'url'  => 'clazzes',
       'icon' => 'fas fa-fw fa-school',
     ],
-
+    [
+      'text' => 'contents',
+      'url'  => 'contents',
+      'icon' => 'fas fa-fw fa-folder',
+    ],
+    [
+      'text' => 'curriculum',
+      'url'  => 'curriculum',
+      'icon' => 'fas fa-fw fa-book',
+    ],
+    [
+      'text' => 'materials',
+      'url'  => 'materials',
+      'icon' => 'fas fa-fw fa-file',
+    ],
     // [
     //   'text'    => 'multilevel',
     //   'icon'    => 'fas fa-fw fa-share',
