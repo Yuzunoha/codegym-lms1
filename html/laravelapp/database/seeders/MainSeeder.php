@@ -23,7 +23,6 @@ class MainSeeder extends Seeder
      * コース
      */
     foreach ($languages as $language) {
-      break;
       Course::create([
         'name' => $language . '基礎コース',
       ]);
@@ -32,23 +31,20 @@ class MainSeeder extends Seeder
     /**
      * クラス
      */
-    foreach ($languages as $language) {
-      break;
-      for ($i = 1; $i <= 5; $i++) {
-        $str = $language . 'クラス' . $i;
-        Clazz::create([
-          'name' => $str . 'FT',
-          'year' => '2022',
-          'season' => $i,
-          'type' => 'FT',
-        ]);
-        Clazz::create([
-          'name' => $str . 'PT',
-          'year' => '2022',
-          'season' => $i,
-          'type' => 'PT',
-        ]);
-      }
+    for ($i = 1; $i <= 5; $i++) {
+      $str = '2022年' . $i . '期生';
+      Clazz::create([
+        'name' => $str . 'FT',
+        'year' => '2022',
+        'season' => $i,
+        'type' => 'FT',
+      ]);
+      Clazz::create([
+        'name' => $str . 'PT',
+        'year' => '2022',
+        'season' => $i,
+        'type' => 'PT',
+      ]);
     }
 
     /**
@@ -57,17 +53,13 @@ class MainSeeder extends Seeder
     $courses = Course::all()->toArray();
     $clazzes = Clazz::all()->toArray();
     foreach ($courses as $course) {
-      break;
       $course_id = $course['id'];
-      $lang = explode('基礎', $course['name'])[0];
       foreach ($clazzes as $clazz) {
-        if (strpos($clazz['name'], $lang . 'クラス') !== false) {
-          $clazz_id = $clazz['id'];
-          ClazzCourse::create([
-            'course_id' => $course_id,
-            'clazz_id' => $clazz_id,
-          ]);
-        }
+        $clazz_id = $clazz['id'];
+        ClazzCourse::create([
+          'course_id' => $course_id,
+          'clazz_id' => $clazz_id,
+        ]);
       }
     }
   }
