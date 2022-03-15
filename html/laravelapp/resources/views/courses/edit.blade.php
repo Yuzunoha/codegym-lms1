@@ -54,7 +54,7 @@
         <th>type</th>
         <th>created_at</th>
         <th>updated_at</th>
-        <th>deleted_at</th>
+        <th>out</th>
       </thead>
       @foreach($course->clazzes as $clazz)
       <tr>
@@ -65,7 +65,7 @@
         <td>{{ $clazz->type }}</td>
         <td>{{ $clazz->created_at }}</td>
         <td>{{ $clazz->updated_at }}</td>
-        <td>{{ $clazz->deleted_at }}</td>
+        <td>out</td>
       </tr>
       @endforeach
     </table>
@@ -86,7 +86,7 @@
         <th>type</th>
         <th>created_at</th>
         <th>updated_at</th>
-        <th>deleted_at</th>
+        <th>in</th>
       </thead>
       @foreach($unrelatedClazzes as $clazz)
       <tr>
@@ -97,7 +97,7 @@
         <td>{{ $clazz->type }}</td>
         <td>{{ $clazz->created_at }}</td>
         <td>{{ $clazz->updated_at }}</td>
-        <td>{{ $clazz->deleted_at }}</td>
+        <td>in</td>
       </tr>
       @endforeach
     </table>
