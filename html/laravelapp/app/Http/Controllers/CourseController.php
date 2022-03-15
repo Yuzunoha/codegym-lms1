@@ -15,7 +15,9 @@ class CourseController extends Controller
    */
   public function index()
   {
-    $courses = Course::with('clazzes')->get();
+    $courses = Course::with(['clazzes' => function ($query) {
+      $query->orderBy('id');
+    }])->get();
     return view('courses/index', compact('courses'));
   }
 
@@ -59,7 +61,9 @@ class CourseController extends Controller
    */
   public function edit(int $id)
   {
-    $course = Course::with('clazzes')->find($id);
+    $course = Course::with(['clazzes' => function ($query) {
+      $query->orderBy('id');
+    }])->find($id);
     if (!$course) {
       /* 無い */
       return redirect('courses');
