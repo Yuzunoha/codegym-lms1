@@ -93,7 +93,11 @@ class CourseController extends Controller
    */
   public function destroy($id)
   {
-    dd($id);
-    //
+    $course = Course::find($id);
+    if ($course) {
+      /* ある */
+      $course->delete();
+    }
+    return redirect('courses');
   }
 }
