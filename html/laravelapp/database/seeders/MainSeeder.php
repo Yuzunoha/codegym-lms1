@@ -70,11 +70,13 @@ class MainSeeder extends Seeder
     foreach ($courses as $course) {
       $course_id = $course['id'];
       foreach ($clazzes as $clazz) {
-        $clazz_id = $clazz['id'];
-        ClazzCourse::create([
-          'course_id' => $course_id,
-          'clazz_id' => $clazz_id,
-        ]);
+        if ($clazz['year'] === '2022') {
+          $clazz_id = $clazz['id'];
+          ClazzCourse::create([
+            'course_id' => $course_id,
+            'clazz_id' => $clazz_id,
+          ]);
+        }
       }
     }
   }
