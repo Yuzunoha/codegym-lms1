@@ -29,7 +29,7 @@
           <td>{{ $course->id }}</td>
           <td>{{ $course->name }}</td>
           <td><button onclick="edit(event, 17)" type="button" class="btn btn-block btn-default">編集</button></td>
-          <td><button type="button" class="btn btn-block btn-danger">削除</button></td>
+          <td><button onclick="destroy(event, 17)" type="button" class="btn btn-block btn-danger">削除</button></td>
         </tr>
         <tr class="expandable-body d-none">
           <td colspan="4" style="width: auto">
@@ -46,13 +46,19 @@
 @section('js')
 <script>
   const edit = (event, id) => {
-    let s = '編集ページに飛びます。\n';
-    s += 'id: ' + id + '\n';
-    const ret = confirm(s);
+    const form = document.createElement('form');
+    form.action = `courses/${id}/edit`;
+    form.method = 'get';
+    document.body.appendChild(form);
+    form.submit();
+    event.stopPropagation();
+  }
+  const destroy = (event, id) => {
+    const ret = confirm('削除します。よろしいですか。');
     if (ret) {
       const form = document.createElement('form');
-      form.action = `courses/${id}/edit`;
-      form.method = 'GET';
+      form.action = `courses/${id}`;
+      form.method = 'delete';
       document.body.appendChild(form);
       form.submit();
     }
