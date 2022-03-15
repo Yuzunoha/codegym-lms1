@@ -18,14 +18,12 @@
           <th>name</th>
           <th>created_at</th>
           <th>updated_at</th>
-          <th>deleted_at</th>
         </thead>
         <tr>
           <td>{{ $course->id }}</td>
           <td>{{ $course->name }}</td>
           <td>{{ $course->created_at }}</td>
           <td>{{ $course->updated_at }}</td>
-          <td>{{ $course->deleted_at }}</td>
         </tr>
         <tr>
           <td></td>
