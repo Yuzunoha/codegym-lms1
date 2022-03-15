@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clazz;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
@@ -63,7 +64,15 @@ class CourseController extends Controller
       /* 無い */
       return redirect('courses');
     }
-    return view('courses/edit', compact('course'));
+
+    /* 包含していないclazzesを取得する */
+    $relatedClazzIdList = [];
+    foreach ($course->clazzes as $clazz) {
+      $relatedClazzIdList[] = $clazz->id;
+    }
+    $unrelatedClazzes = Clazz::whereNotIn('id', $relatedClazzIdList)->get();
+
+    return view('courses/edit', compact('course', 'unrelatedClazzes'));
   }
 
   /**
