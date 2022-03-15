@@ -11,8 +11,8 @@ class ClazzCourseController extends Controller
     dd($request);
   }
 
-  public function destroy($id)
+  public function destroy(Request $request)
   {
-    dd($id);
+    dd($request);
   }
 }
