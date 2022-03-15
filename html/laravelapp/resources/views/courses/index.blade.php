@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+<p>レコードをクリックすると開きます。</p>
 <div class="card">
   <div class="card-body p-0">
     <table class="table table-bordered table-hover">
@@ -23,7 +24,7 @@
         <?php
         $clazzStr = '';
         foreach ($course->clazzes as $clazz) {
-          $clazzStr .= $clazz->name . '<br>';
+          $clazzStr .= "$clazz->name<br>";
         }
         ?>
         <tr data-widget="expandable-table" aria-expanded="false">
