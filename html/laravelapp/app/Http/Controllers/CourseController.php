@@ -91,7 +91,7 @@ class CourseController extends Controller
     }
     $course->name = $request->name ?: $course->name;
     $course->save();
-    return view('courses/edit', compact('course'));
+    return redirect("courses/$id/edit");
   }
 
   /**
