@@ -12,14 +12,14 @@
   @csrf
   <div class="card">
     <div class="card-body p-0">
-      <table class="table table-striped">
-        <tr>
+      <table class="table table-bordered table-striped">
+        <thead>
           <th>id</th>
           <th>name</th>
           <th>created_at</th>
           <th>updated_at</th>
           <th>deleted_at</th>
-        </tr>
+        </thead>
         <tr>
           <td>{{ $course->id }}</td>
           <td>{{ $course->name }}</td>
