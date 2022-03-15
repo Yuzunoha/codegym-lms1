@@ -46,6 +46,21 @@ class MainSeeder extends Seeder
         'type' => 'PT',
       ]);
     }
+    for ($i = 1; $i <= 5; $i++) {
+      $str = '2023年' . $i . '期生';
+      Clazz::create([
+        'name' => $str . 'FT',
+        'year' => '2023',
+        'season' => $i,
+        'type' => 'FT',
+      ]);
+      Clazz::create([
+        'name' => $str . 'PT',
+        'year' => '2023',
+        'season' => $i,
+        'type' => 'PT',
+      ]);
+    }
 
     /**
      * コース_クラス
