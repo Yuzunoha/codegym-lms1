@@ -40,6 +40,10 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
+<pre>
+  <?php print_r($course->clazzes->toArray()) ?>
+</pre>
+
 <div class="container-fluid" style="margin-top: 50px;">
   <h5>包含しているclazzes</h5>
 </div>
@@ -49,6 +53,9 @@
       <thead>
         <th>id</th>
         <th>name</th>
+        <th>year</th>
+        <th>season</th>
+        <th>type</th>
         <th>created_at</th>
         <th>updated_at</th>
         <th>deleted_at</th>
@@ -59,13 +66,19 @@
         <td>{{ $course->created_at }}</td>
         <td>{{ $course->updated_at }}</td>
         <td>{{ $course->deleted_at }}</td>
+        <td>{{ $course->updated_at }}</td>
+        <td>{{ $course->deleted_at }}</td>
+        <td>{{ $course->deleted_at }}</td>
       </tr>
       <tr>
-        <td></td>
-        <td><input type="text" class="form-control" name="name" value="{{ $course->name }}"></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ $course->id }}</td>
+        <td>{{ $course->name }}</td>
+        <td>{{ $course->created_at }}</td>
+        <td>{{ $course->updated_at }}</td>
+        <td>{{ $course->deleted_at }}</td>
+        <td>{{ $course->updated_at }}</td>
+        <td>{{ $course->deleted_at }}</td>
+        <td>{{ $course->deleted_at }}</td>
       </tr>
     </table>
   </div>
