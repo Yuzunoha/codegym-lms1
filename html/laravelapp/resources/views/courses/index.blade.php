@@ -28,8 +28,8 @@
         <tr data-widget="expandable-table" aria-expanded="false">
           <td>{{ $course->id }}</td>
           <td>{{ $course->name }}</td>
-          <td><button onclick="edit(event, 17)" type="button" class="btn btn-block btn-default">編集</button></td>
-          <td><button onclick="destroy(event, 17)" type="button" class="btn btn-block btn-danger">削除</button></td>
+          <td><button onclick="edit(event, <?= $course->id ?>)" type="button" class="btn btn-block btn-default">編集</button></td>
+          <td><button onclick="destroy(event, <?= $course->id ?>)" type="button" class="btn btn-block btn-danger">削除</button></td>
         </tr>
         <tr class="expandable-body d-none">
           <td colspan="4" style="width: auto">
@@ -41,12 +41,15 @@
     </table>
   </div>
 </div>
+<form id="commonForm">
+  @csrf
+</form>
 @stop
 
 @section('js')
 <script>
   const edit = (event, id) => {
-    const form = document.createElement('form');
+    const form = document.getElementById('commonForm');
     form.action = `courses/${id}/edit`;
     form.method = 'get';
     document.body.appendChild(form);
@@ -56,9 +59,10 @@
   const destroy = (event, id) => {
     const ret = confirm('削除します。よろしいですか。');
     if (ret) {
-      const form = document.createElement('form');
+      const form = document.getElementById('commonForm');
       form.action = `courses/${id}`;
-      form.method = 'delete';
+      form.method = 'post';
+      form.innerHTML += '<input type="hidden" name="_method" value="DELETE">';
       document.body.appendChild(form);
       form.submit();
     }
