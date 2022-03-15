@@ -12,12 +12,10 @@
   <div class="card-body p-0">
     <table class="table table-bordered table-hover">
       <thead>
-        <tr>
-          <th style="width: 10px">#</th>
-          <th style="width: 1000px">name</th>
-          <th style="width: 100px">action</th>
-          <th style="width: 100px">danger</th>
-        </tr>
+        <th style="width: 10px">#</th>
+        <th style="width: auto">name</th>
+        <th style="width: 90px">action</th>
+        <th style="width: 100px">danger</th>
       </thead>
       <tbody>
         @foreach($courses as $course)
@@ -34,7 +32,7 @@
           <td><button type="button" class="btn btn-block btn-danger">削除</button></td>
         </tr>
         <tr class="expandable-body d-none">
-          <td colspan="4">
+          <td colspan="4" style="width: auto">
             <p>{!! $clazzStr !!}</p>
           </td>
         </tr>
