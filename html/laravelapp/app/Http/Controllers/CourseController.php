@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
+  protected function fnOrderById(): callable
+  {
+    return function ($query) {
+      $query->orderBy('id');
+    };
+  }
+
   /**
    * Display a listing of the resource.
    *
@@ -15,9 +22,7 @@ class CourseController extends Controller
    */
   public function index()
   {
-    $courses = Course::with(['clazzes' => function ($query) {
-      $query->orderBy('id');
-    }])->get();
+    $courses = Course::with(['clazzes' => $this->fnOrderById()])->get();
     return view('courses/index', compact('courses'));
   }
 
@@ -61,9 +66,7 @@ class CourseController extends Controller
    */
   public function edit(int $id)
   {
-    $course = Course::with(['clazzes' => function ($query) {
-      $query->orderBy('id');
-    }])->find($id);
+    $course = Course::with(['clazzes' => $this->fnOrderById()])->find($id);
     if (!$course) {
       /* 無い */
       return redirect('courses');
