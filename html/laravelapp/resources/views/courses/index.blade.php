@@ -48,23 +48,21 @@
 
 @section('js')
 <script>
-  const edit = (event, id) => {
+  const commonFormSubmit = (action, method, moreHtml = '') => {
     const form = document.getElementById('commonForm');
-    form.action = `courses/${id}/edit`;
-    form.method = 'get';
-    document.body.appendChild(form);
+    form.action = action;
+    form.method = method;
+    form.innerHTML += moreHtml;
     form.submit();
+  };
+  const edit = (event, id) => {
+    commonFormSubmit(`courses/${id}/edit`, 'get');
     event.stopPropagation();
   }
   const destroy = (event, id) => {
     const ret = confirm('削除します。よろしいですか。');
     if (ret) {
-      const form = document.getElementById('commonForm');
-      form.action = `courses/${id}`;
-      form.method = 'post';
-      form.innerHTML += '<input type="hidden" name="_method" value="DELETE">';
-      document.body.appendChild(form);
-      form.submit();
+      commonFormSubmit(`courses/${id}`, 'post', '<input type="hidden" name="_method" value="DELETE">');
     }
     event.stopPropagation();
   }
