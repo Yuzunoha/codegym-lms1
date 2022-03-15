@@ -37,7 +37,7 @@
       </table>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">update</button>
 </form>
 
 <div class="container-fluid" style="margin-top: 50px;">
