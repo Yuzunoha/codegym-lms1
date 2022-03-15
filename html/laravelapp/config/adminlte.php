@@ -280,8 +280,8 @@ return [
       'icon' => 'fas fa-fw fa-folder',
     ],
     [
-      'text' => 'curriculum',
-      'url'  => 'curriculum',
+      'text' => 'curriculums',
+      'url'  => 'curriculums',
       'icon' => 'fas fa-fw fa-book',
     ],
     [
