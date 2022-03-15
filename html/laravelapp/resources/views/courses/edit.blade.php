@@ -54,7 +54,7 @@
         <th>type</th>
         <th>created_at</th>
         <th>updated_at</th>
-        <th>out</th>
+        <th style="width: 100px">out</th>
       </thead>
       @foreach($course->clazzes as $clazz)
       <tr>
@@ -86,7 +86,7 @@
         <th>type</th>
         <th>created_at</th>
         <th>updated_at</th>
-        <th>in</th>
+        <th style="width: 100px">in</th>
       </thead>
       @foreach($unrelatedClazzes as $clazz)
       <tr>
