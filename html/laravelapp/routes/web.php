@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ClazzCourse;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,4 +44,13 @@ Route::get('test/relation', 'TestController@relation');
 
 Route::get('sample1', function () {
   return view('sample1');
+});
+
+Route::get('test', function () {
+  $clazz_id = 120;
+  $course_id = 17;
+  $m = ClazzCourse::where('clazz_id', $clazz_id)
+    ->where('course_id', $course_id)
+    ->first();
+  dd($m);
 });
