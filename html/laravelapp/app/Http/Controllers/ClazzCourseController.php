@@ -21,28 +21,19 @@ class ClazzCourseController extends Controller
     $clazz_id = $request->clazz_id;
     $course_id = $request->course_id;
 
-    $fnRedirect = fn () => redirect("courses/$course_id/edit");
-    if (!Clazz::find($clazz_id)) {
-      /* クラスが存在しない */
-      return $fnRedirect();
+    if (
+      Clazz::find($clazz_id) && // クラスが存在すること
+      Course::find($course_id) && // コースが存在すること
+      !$this->getClazzCourse($clazz_id, $course_id) // リレーションが存在しないこと
+    ) {
+      /* リレーションを作成する */
+      ClazzCourse::create([
+        'course_id' => $course_id,
+        'clazz_id' => $clazz_id,
+      ]);
     }
 
-    if (!Course::find($course_id)) {
-      /* コースが存在しない */
-      return $fnRedirect();
-    }
-
-    if ($this->getClazzCourse($clazz_id, $course_id)) {
-      /* リレーションが既に存在する */
-      return $fnRedirect();
-    }
-
-    /* リレーションを作成する */
-    ClazzCourse::create([
-      'course_id' => $course_id,
-      'clazz_id' => $clazz_id,
-    ]);
-    return $fnRedirect();
+    return redirect("courses/$course_id/edit");
   }
 
   public function destroy(Request $request)
