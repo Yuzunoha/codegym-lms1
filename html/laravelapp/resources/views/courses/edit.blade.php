@@ -3,6 +3,9 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+<a class="btn btn-app bg-secondary">
+  <i class="fas fa-backward"></i>back
+</a>
 <h1>courses/edit</h1>
 @stop
 
