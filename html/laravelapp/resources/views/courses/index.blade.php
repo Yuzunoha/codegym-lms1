@@ -58,13 +58,13 @@
   const edit = (event, id) => {
     commonFormSubmit(`courses/${id}/edit`, 'get');
     event.stopPropagation();
-  }
+  };
   const destroy = (event, id) => {
     const ret = confirm('削除します。よろしいですか。');
     if (ret) {
       commonFormSubmit(`courses/${id}`, 'post', '<input type="hidden" name="_method" value="DELETE">');
     }
     event.stopPropagation();
-  }
+  };
 </script>
 @stop
