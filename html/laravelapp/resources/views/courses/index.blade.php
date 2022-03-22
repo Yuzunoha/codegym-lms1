@@ -41,28 +41,25 @@
     </table>
   </div>
 </div>
-<form id="commonForm">
-  @csrf
-</form>
+<form id="formPost" method="POST">@csrf</form>
 @stop
 
 @section('js')
 <script>
-  const commonFormSubmit = (action, method, moreHtml = '') => {
-    const form = document.getElementById('commonForm');
-    form.action = action;
-    form.method = method;
-    form.innerHTML += moreHtml;
-    form.submit();
-  };
   const edit = (event, id) => {
-    commonFormSubmit(`courses/${id}/edit`, 'get');
+    const form = document.createElement('form');
+    form.action = `courses/${id}/edit`;
+    document.body.appendChild(form);
+    form.submit();
     event.stopPropagation();
   };
   const destroy = (event, id) => {
     const ret = confirm('削除します。よろしいですか。');
     if (ret) {
-      commonFormSubmit(`courses/${id}`, 'post', '<input type="hidden" name="_method" value="DELETE">');
+      const form = document.getElementById('formPost');
+      form.action = `courses/${id}`;
+      form.innerHTML += '<input type="hidden" name="_method" value="DELETE">';
+      form.submit();
     }
     event.stopPropagation();
   };
