@@ -120,7 +120,7 @@
     html += `<input type="hidden" name="course_id" value="${course_id}">`;
     commonFormSubmit(`/clazz_course`, 'post', html);
     event.stopPropagation();
-  }
+  };
   const destroy = (event, clazz_id, course_id) => {
     let html = '';
     html += '<input type="hidden" name="_method" value="DELETE">';
@@ -128,6 +128,6 @@
     html += `<input type="hidden" name="course_id" value="${course_id}">`;
     commonFormSubmit(`/clazz_course/0`, 'post', html);
     event.stopPropagation();
-  }
+  };
 </script>
 @stop
