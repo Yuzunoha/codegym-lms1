@@ -270,8 +270,8 @@ return [
       'icon' => 'fas fa-fw fa-code',
     ],
     [
-      'text' => 'clazzes',
-      'url'  => 'clazzes',
+      'text' => 'classes',
+      'url'  => 'classes',
       'icon' => 'fas fa-fw fa-school',
     ],
     [

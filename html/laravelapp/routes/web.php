@@ -36,6 +36,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 */
 Route::resource('courses', 'CourseController');
 Route::resource('clazz_course', 'ClazzCourseController', ['only' => ['store', 'destroy']]);
+Route::resource('classes', 'ClazzController');
 // 本番 end
 
 Route::get('test', 'TestController@index');
