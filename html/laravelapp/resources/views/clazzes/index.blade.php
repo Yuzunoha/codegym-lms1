@@ -14,6 +14,9 @@
       <thead>
         <th style="width: 10px">#</th>
         <th style="width: auto">name</th>
+        <th style="width: 120px">year</th>
+        <th style="width: 120px">season</th>
+        <th style="width: 120px">type</th>
         <th style="width: 90px">action</th>
         <th style="width: 100px">danger</th>
       </thead>
@@ -22,6 +25,9 @@
         <tr data-widget="expandable-table" aria-expanded="false">
           <td>{{ $clazz->id }}</td>
           <td>{{ $clazz->name }}</td>
+          <td>{{ $clazz->year }}</td>
+          <td>{{ $clazz->season }}</td>
+          <td>{{ $clazz->type }}</td>
           <td><button onclick="edit(event, <?= $clazz->id ?>)" type="button" class="btn btn-block btn-default">編集</button></td>
           <td><button onclick="destroy(event, <?= $clazz->id ?>)" type="button" class="btn btn-block btn-danger">削除</button></td>
         </tr>
