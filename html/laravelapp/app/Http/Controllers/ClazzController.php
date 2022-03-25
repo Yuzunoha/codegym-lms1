@@ -10,8 +10,8 @@ class ClazzController extends Controller
 {
   public function index()
   {
-    $courses = Course::with(['clazzes' => $this->fnOrderById()])->get();
-    return view('courses/index', compact('courses'));
+    $clazzes = Clazz::get();
+    return view('clazzes/index', compact('clazzes'));
   }
 
   public function create()
