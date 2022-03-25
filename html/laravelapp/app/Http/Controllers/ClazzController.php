@@ -31,6 +31,7 @@ class ClazzController extends Controller
 
   public function edit(int $id)
   {
+    // TODO
     $course = Course::with(['clazzes' => $this->fnOrderById()])->find($id);
     if (!$course) {
       /* 無い */
@@ -49,6 +50,7 @@ class ClazzController extends Controller
 
   public function update(Request $request, int $id)
   {
+    // TODO
     $course = Course::find($id);
     if (!$course) {
       /* 無い */
@@ -61,11 +63,11 @@ class ClazzController extends Controller
 
   public function destroy($id)
   {
-    $course = Course::find($id);
-    if ($course) {
+    $clazz = Clazz::find($id);
+    if ($clazz) {
       /* ある */
-      $course->delete();
+      $clazz->delete();
     }
-    return redirect('courses');
+    return redirect('classes');
   }
 }
