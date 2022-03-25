@@ -31,34 +31,24 @@ class ClazzController extends Controller
 
   public function edit(int $id)
   {
-    // TODO
-    $course = Course::with(['clazzes' => $this->fnOrderById()])->find($id);
-    if (!$course) {
+    $clazz = Clazz::find($id);
+    if (!$clazz) {
       /* 無い */
-      return redirect('courses');
+      return redirect('classes');
     }
-
-    /* 包含していないclazzesを取得する */
-    $relatedClazzIdList = [];
-    foreach ($course->clazzes as $clazz) {
-      $relatedClazzIdList[] = $clazz->id;
-    }
-    $unrelatedClazzes = Clazz::whereNotIn('id', $relatedClazzIdList)->get();
-
-    return view('courses/edit', compact('course', 'unrelatedClazzes'));
+    return view('clazzes/edit', compact('clazz'));
   }
 
   public function update(Request $request, int $id)
   {
-    // TODO
-    $course = Course::find($id);
-    if (!$course) {
+    $clazz = Clazz::find($id);
+    if (!$clazz) {
       /* 無い */
-      return redirect('courses');
+      return redirect('classes');
     }
-    $course->name = $request->name ?: $course->name;
-    $course->save();
-    return redirect("courses/$id/edit");
+    $clazz->name = $request->name ?: $clazz->name;
+    $clazz->save();
+    return redirect("classes/$id/edit");
   }
 
   public function destroy($id)
