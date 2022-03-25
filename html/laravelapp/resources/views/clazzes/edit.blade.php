@@ -19,18 +19,27 @@
         <thead>
           <th>id</th>
           <th>name</th>
+          <th>year</th>
+          <th>season</th>
+          <th>type</th>
           <th>created_at</th>
           <th>updated_at</th>
         </thead>
         <tr>
           <td>{{ $clazz->id }}</td>
           <td>{{ $clazz->name }}</td>
+          <td>{{ $clazz->year }}</td>
+          <td>{{ $clazz->season }}</td>
+          <td>{{ $clazz->type }}</td>
           <td>{{ $clazz->created_at }}</td>
           <td>{{ $clazz->updated_at }}</td>
         </tr>
         <tr>
           <td></td>
           <td><input type="text" class="form-control" name="name" value="{{ $clazz->name }}"></td>
+          <td><input type="text" class="form-control" name="year" value="{{ $clazz->year }}"></td>
+          <td><input type="text" class="form-control" name="season" value="{{ $clazz->season }}"></td>
+          <td><input type="text" class="form-control" name="type" value="{{ $clazz->type }}"></td>
           <td></td>
           <td></td>
         </tr>

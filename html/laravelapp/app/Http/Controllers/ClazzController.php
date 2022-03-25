@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clazz;
-use App\Models\Course;
 use Illuminate\Http\Request;
 
 class ClazzController extends Controller
@@ -47,6 +46,9 @@ class ClazzController extends Controller
       return redirect('classes');
     }
     $clazz->name = $request->name ?: $clazz->name;
+    $clazz->year = $request->year ?: $clazz->year;
+    $clazz->season = $request->season ?: $clazz->season;
+    $clazz->type = $request->type ?: $clazz->type;
     $clazz->save();
     return redirect("classes/$id/edit");
   }
